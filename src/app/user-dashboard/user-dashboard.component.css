@@ -1,0 +1,18 @@
+.list-group ,.tab-content{
+  margin-top: -4rem !important;
+}
+.tab-content {
+  width: 70%;
+  max-width: 70%;
+  margin-left: 20px;
+}
+.bg{
+  background-image: url("../../assets/img/bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: auto;
+  overflow-y: hidden;
+}
+ul.list-groups.profile.list-group-flush {
+  margin-left: -3rem !important;
+}

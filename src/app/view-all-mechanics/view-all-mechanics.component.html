@@ -1,0 +1,29 @@
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Company Name</th>
+        <th scope="col">Email Address</th>
+        <th scope="col">Phone Number</th>
+        <th scope="col">Address</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody> 
+      
+      <tr *ngFor="let re of history | paginate: { itemsPerPage: 5, currentPage: p }">
+        <td>{{re.companyName}}</td>
+        <td>{{re.email}}</td>
+        <td>{{re.phoneNumber}}</td>
+        <td>{{re.address}}</td>
+        <td><button type="button" class="btn btn-outline-secondary btn-sm " (click)="delete([re._id])"
+        >Delete</button>
+        <button type="button" class="btn btn-outline-secondary btn-sm" 
+        [routerLink]="['/edit-mecchanic/', re._id]"
+        >Edit</button>
+      </td>
+        
+      </tr>
+      
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>

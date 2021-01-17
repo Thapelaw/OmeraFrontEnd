@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+button.btn.btn-outline-danger {
+    color: white !important;
+    border-color: white !important;
+}
+.bg-light {
+    background-color: #461a29!important;
+    color: white !important;
+}

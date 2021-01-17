@@ -1,0 +1,80 @@
+<app-navbar></app-navbar>
+<div class="container mt-4">
+  <h4>Generate Invoices</h4>
+
+  
+  <form [formGroup]="updateUser" class="theform" (submit)="onSubmit()">
+    <div class="card">
+        <div class="card-header">
+          Client Details
+        </div>
+        <div class="card-body" *ngFor="let user of invoice">
+            <div class="form-group" hidden>
+                <label for="exampleInputEmail1">Service Description One </label>
+                <input type="text" class="form-control" formControlName="firstName" required>
+            </div>
+            <div class="form-group" hidden>
+                <label for="exampleInputEmail1">Service Description One </label>
+                <input type="text" class="form-control" formControlName="lastName" >
+            </div>
+            <div class="form-group" hidden>
+                <label for="exampleInputEmail1">Service Description One </label>
+                <input type="text" class="form-control" formControlName="email" >
+            </div>
+          <blockquote class="blockquote mb-0">
+            <p>{{user.firstName}} {{user.lastName}} </p>
+            
+          </blockquote>
+        </div>
+      </div>
+      <hr>
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Service Description One </label>
+                <input type="text" class="form-control" formControlName="serviceOne" required>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Price</label>
+                <input type="number" class="form-control" formControlName="priceOne" required>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Service Description two </label>
+                <input type="text" class="form-control" formControlName="serviceTwo" >
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Price</label>
+                <input type="number" class="form-control" formControlName="priceTwo" >
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Service Description Three </label>
+                <input type="text" class="form-control" formControlName="serviceThree" >
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Price</label>
+                <input type="number" class="form-control" formControlName="priceThree" >
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <button type="button" class="btn btn-secondary btn-lg btn-block btn-sm" (click)="onSubmit()">Send Invoice</button>
+    </div>
+</form>
+
+
+</div>

@@ -1,0 +1,28 @@
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email Address</th>
+        <th scope="col">Phone Number</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let re of admin | paginate: { itemsPerPage: 5, currentPage: p }">
+        <td>{{re.firstName}}</td>
+        <td>{{re.lastName}}</td>
+        <td>{{re.email}}</td>
+        <td>{{re.phoneNumber}}</td>
+        <td><button type="button" class="btn btn-outline-secondary btn-sm " (click)="delete([re._id])"
+        >Delete</button>
+        <button type="button" class="btn btn-outline-secondary btn-sm" 
+        [routerLink]="['/edit-admin/', re._id]"
+        >Edit</button>
+      </td>
+        
+      </tr>
+      
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>

@@ -1,0 +1,52 @@
+<app-navbar></app-navbar>
+<div class="container shadow p-3 mb-5 bg-white">
+    <tabset class="mt-4">
+      <tab heading="AVAILABLE REQUESTS" id="tab1">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email Address</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Location</th>
+                <th scope="col">Status</th>
+                <th>Actions</th>
+                <th>Invoices</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let re of history | paginate: { itemsPerPage: 5, currentPage: p }">
+                <td>{{re.firstName}}</td>
+                <td>{{re.lastName}}</td>
+                <td>{{re.email}}</td>
+                <td>{{re.phoneNumber}}</td>
+                <td>{{re.location}}</td>
+                <td>{{re.status}}</td>
+                <td><button type="button" class="btn btn-outline-secondary"
+                    [routerLink]="['/changeStatus/', re._id]">Assign</button></td>
+                <td><button type="button" class="btn btn-outline-secondary"
+                        [routerLink]="['/send-invoice/', re._id]">Invoice</button></td>
+              </tr>
+              
+            </tbody>
+          </table>
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </tab>
+      <tab heading="LIST OF MECHANICS">
+        <app-view-all-mechanics></app-view-all-mechanics>
+      </tab>
+      <tab heading="ADD A NEW MECHANIC">
+        <div class="alert alert-dark" role="alert">
+          Please note all fields marked with (*) are compulsary !
+        </div>
+        <app-add-new-mechanic></app-add-new-mechanic>
+      </tab>
+      <tab heading="LIST OF ADMIN">
+       <app-view-admin></app-view-admin>
+      </tab>
+      <tab heading="ADD NEW ADMIN">
+        <app-add-admin></app-add-admin>
+      </tab>
+    </tabset>
+  </div>

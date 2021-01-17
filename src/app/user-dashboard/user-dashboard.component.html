@@ -1,0 +1,67 @@
+<app-navbar></app-navbar>
+<div class="jumbotron jumbotron-fluid bg">
+    <div class="container">
+        <h1 class="display-4 text-white">Hello {{profile[0].username}} !</h1>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <!-- List group -->
+        <div class="list-group shadow p-3 mb-5 bg-white" id="myList" role="tablist">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                        <ul class="list-groups profile list-group-flush" *ngFor="let user of profile">
+                            <li class="list-group-item text-muted">{{user.firstName}}</li>
+                            <li class="list-group-item text-muted">{{user.lastName}}</li>
+                            <li class="list-group-item text-muted">{{user.email}}</li>
+                            <li class="list-group-item text-muted">{{user.phoneNumber}}</li>
+                          </ul>
+                </div>
+            </div>
+            <a class="list-group-item list-group-item-action active" data-toggle="list" href="#home" role="tab">Home</a>
+            <a class="list-group-item list-group-item-action" data-toggle="list" href="#profile" role="tab">Update Profile</a>
+            <a class="list-group-item list-group-item-action" data-toggle="list" href="#messages"
+                role="tab">Request history</a>
+            <a class="list-group-item list-group-item-action" data-toggle="list" href="#settings"
+                role="tab">About</a>
+        </div>
+
+        <!-- Tab panes -->
+        <div class="tab-content shadow p-3 mb-5 bg-white">
+            <div class="tab-pane active" id="home" role="tabpanel">
+                <app-request-map></app-request-map>
+            </div>
+            <div class="tab-pane" id="profile" role="tabpanel">
+                <app-update-profile></app-update-profile>
+            </div>
+            <div class="tab-pane" id="messages" role="tabpanel">
+                
+                <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">Location</th>
+                        <th scope="col">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let his of history">
+                        <td>{{his.location}}</td>
+                        <td>{{his.status}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+            <div class="tab-pane" id="settings" role="tabpanel">
+                What is Lorem Ipsum?
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+                essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing 
+                Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </div>
+        </div>
+    </div>
+
+</div>
+<app-footer class="mt-auto"></app-footer>
